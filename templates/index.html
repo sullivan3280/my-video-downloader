@@ -2,26 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Video Downloader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iXplorer Downloader</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 50px 20px; }
-        .container { max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        input[type="text"] { width: 100%; padding: 12px; margin: 20px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
-        button { background-color: #28a745; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; }
-        button:hover { background-color: #218838; }
-        .footer { margin-top: 20px; font-size: 12px; color: #777; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background: linear-gradient(135deg, #0f172a 0%, #020617 100%); 
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .app-container { 
+            width: 100%;
+            max-width: 420px; 
+            background: rgba(30, 41, 59, 0.4); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 35px 25px; 
+            border-radius: 24px; 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border-radius: 18px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3);
+        }
+        h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; color: #ffffff; }
+        p { font-size: 14px; color: #94a3b8; margin-bottom: 25px; line-height: 1.5; }
+        .input-group { position: relative; margin-bottom: 20px; }
+        input[type="text"] { 
+            width: 100%; 
+            padding: 16px 16px; 
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 14px; 
+            color: #fff;
+            font-size: 15px; 
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            background: rgba(15, 23, 42, 0.8);
+        }
+        input[type="text"]::placeholder { color: #475569; }
+        button { 
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); 
+            color: white; 
+            padding: 16px; 
+            border: none; 
+            border-radius: 14px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-size: 16px; 
+            font-weight: 600; 
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        button:active { 
+            transform: scale(0.98); 
+            opacity: 0.95;
+        }
+        .footer { margin-top: 25px; font-size: 11px; color: #475569; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Ultimate Video Downloader</h2>
-        <p>Paste a YouTube, TikTok, or Instagram link below to download it instantly.</p>
+    <div class="app-container">
+        <div class="app-icon">X</div>
+        <h2>iXplorer Pro</h2>
+        <p>Paste your media link below to explore and capture video instantly.</p>
         
-        <input type="text" id="videoUrl" placeholder="Paste link here..." required>
-        <button onclick="downloadVideo()">Download Video</button>
+        <div class="input-group">
+            <input type="text" id="videoUrl" placeholder="Paste link here (YouTube, TikTok, IG...)" required>
+        </div>
+        <button onclick="downloadVideo()">Explore & Download</button>
         
-        <div class="footer">Using a high-availability backup tunnel to bypass blocks.</div>
+        <div class="footer">Secure Cloud Link Engine</div>
     </div>
 
     <script>
@@ -31,8 +103,6 @@
                 alert('Please paste a link first!');
                 return;
             }
-
-            // Pushes the request directly through Publer's specialized tool to bypass YT restrictions
             const encodedUrl = encodeURIComponent(url);
             window.open(`https://publer.io/tools/media-downloader?url=${encodedUrl}`, '_blank');
         }
